@@ -1,9 +1,6 @@
 # TradingCardWebsite
-This is a website that I am currently building that show cases some aspects of web development.
-=======
-# MyAngularProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+This is a website that I am currently building that show cases some aspects of web development.
 
 ## Development server
 
