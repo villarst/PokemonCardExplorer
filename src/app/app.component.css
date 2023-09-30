@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white; /* White background */
+}
+#blackBarTop{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:50px;
+  background-color:black;
+}
+#whiteBarTop{
+  position:absolute;
+  top:50px;
+  left:0;
+  width:100%;
+  height:75px;
+  background-color:white;
+}
+#pokemonLogo{
+  padding-bottom: 3px;
+  padding-bottom: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 6px;
+  width: 175px;
+  height: 60px;
+}
+.firstThreeHeaders{
+  margin-top: 16px; /* Determines how high or low the first three headers are. */
+  font-size: 22px; /* Font size for the first three headers. */
+  font-weight: 1000; /* How dark the headers are. */
+  font-family: "monaco", monospace;
+  width: 140px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-bottom: solid 1px rgba(181, 181, 181, 0.689);
+  border-width: 1px;   
+}
+li {
+  float: left;
+  width: flex;
+}
+li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 8px; /* How far down the first three lines and first three headers are. */
+  text-decoration: none;
+  border-inline-start: solid rgb(193, 193, 193); /* Color of the first three lines. */
+  border-width: 2px; /* How wide the first three lines are. */
+  writing-mode: horizontal-tb;
+}
+li a:hover {
+  background-color: #878787; /* Hover color of the first three headers. */
+}
+form { /* Search Bar */
+  margin-left: 10px; /* How far to the right the search bar is all together. */
+  border: 3px solid #000000; /* Border color of the search bar. */
+  background-color: #ffffff;
+  width: 350px;
+  height: 36px; /* How tall the search bar is along with the line height. */
+  border-radius: 18px; /* How round the search bar is. */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+input { /* Input text of the search bar. */
+  all: unset;
+  font: 20px system-ui;
+  color: #000000;
+  height: 100%;
+  width: 300px;
+  padding-left: 12px;
+}
+#searchHeader { /* Search header line in front. */
+  margin-top: 15.5px; /* This is for where the line starts up top. */
+  border-inline-start: solid rgb(193, 193, 193); 
+  border-width: 2px;   
+}
+#searchButton { /* Actual button NOT magnifying glass.  */
+  all: unset;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+svg { /* Magnifying glass. */
+  color: #000000;
+  fill: currentColor;
+  width: 25px;
+  height: 25px;
+  padding: 8px;
+}
+html{
+  height:auto
+}

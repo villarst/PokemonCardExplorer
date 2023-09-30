@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Kanit-ExtraLight';
+    src: url("src/assets/Fonts/Kanit/Kanit-ExtraLight.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kanit-Light';
+    src: url("src/assets/Fonts/Kanit/Kanit-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+#aboutHeader {
+    padding-top: 25px;
+    font-size: 26px;
+    font-family: 'Kanit-Light', serif;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#paragraph {
+    font-size: 22px;
+    text-align: center;    
+    margin-left: 450px; /* This is needed to keep it centered on both sides. */
+    margin-right: 450px; /* This is needed to keep it centered on both sides. */
+    letter-spacing: .5px; 
+    line-height: 40px; 
+}
+
+#signiture {
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 40px;
+}
