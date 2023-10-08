@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <!-- Displays the JSON for the Charizard base set card.-->
+    <!-- <div class="centerContainer">
+        <button id="pokeBtn" (click)="logMessage()">Click This</button>
+        <div *ngIf="cardInfo">
+          <h2>Card Information</h2>
+          <pre>{{ cardInfo | json }}</pre>
+        </div>
+    </div> -->
+    
+    <!-- Displays the image of the base set Charizard card. -->
+    <div class="centerContainer">
+      <button id="pokeBtn" (click)="logMessage()">Click This</button>
+      <div *ngIf="cardInfo">
+        <h2>Card Information</h2>
+        <img src="{{ cardInfo.data.images.small }}" alt="Card Image">
+      </div>
+    </div>
+</html>
+
+
+
+
