@@ -1,17 +1,50 @@
+@font-face {
+    font-family: 'Kanit-ExtraLight';
+    src: url("src/assets/Fonts/Kanit/Kanit-ExtraLight.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kanit-Light';
+    src: url("src/assets/Fonts/Kanit/Kanit-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
 .centerContainer { 
     display: flex;
     justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    padding-top: 200px;
+    margin-top: 0px;
 }
-
 #pokeBtn {
     width: 100px;
     height: 50px;
     font-size: 15px;
-    padding: 10px 20px; /* Adjust padding as needed */
     background-color: #007d68; /* Button background color */
     color: #fff; /* Text color */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Add cursor pointer on hover */
+    margin-left: 55px;
+}
+#Cards-Header {
+    font-size: 35px;
+    font-family: "Kanit-Light", serif;
+    padding-left: 60px;
+    margin-top: 0px;
+    font-weight: 900;
+}
+.row {
+    display: flex;
+}
+.column {
+    flex: 33.33%;
+    padding: 25px;
+}
+.left-div {
+    position: absolute; /* Position the div absolutely */
+    left: 0;            /* Align it to the left edge of the viewport */
+    top: 0;             /* Align it to the top edge of the viewport (optional) */
+    width: 200px;       /* Set a specific width if needed */
+    height: 0%;       /* Set a specific height or use 100% for full height */
+    background-color: #f0f0f0; /* Add a background color for visibility */
+    margin-top: 100px;
 }

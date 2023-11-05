@@ -16,7 +16,7 @@ export class CardsComponent {
   logMessage() {
     console.log('Successful');
     const cardId = 'base1-4'; // Replace with the actual card ID you want to fetch
-    this.pokemonService.getCardInfo(cardId).subscribe((data: any) => {
+    this.pokemonService.showTestCard(cardId).subscribe((data: any) => {
       this.cardInfo = data;
       console.log('Card Info:', this.cardInfo);
     });
