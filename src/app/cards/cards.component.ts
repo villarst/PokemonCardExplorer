@@ -16,9 +16,22 @@ export class CardsComponent {
   logMessage() {
     console.log('Successful');
     const cardId = 'base1-4'; // Replace with the actual card ID you want to fetch
+
     this.pokemonService.showTestCard(cardId).subscribe((data: any) => {
       this.cardInfo = data;
       console.log('Card Info:', this.cardInfo);
     });
+  }
+
+  fourPokemonInfo () {
+    const setCode = 'swsh4'; // Replace with the set code you want to fetch (e.g., 'swsh4')
+    this.pokemonService.getAllPokemonInSet(setCode)
+      .then((cards) => {
+        // Handle the fetched cards here
+        console.log('All cards:', cards);
+      })
+      .catch((error) => {
+        console.error('Error fetching cards:', error);
+      });
   }
 }

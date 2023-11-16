@@ -19,27 +19,28 @@
           <h1 id="Cards-Header">
             Cards
           </h1>
-          <button id="pokeBtn" (click)="logMessage()">Click This</button>
+          <button id="pokeBtn" (click)="logMessage()" (click)="fourPokemonInfo()">Click This</button>
         </div>
-        <div class="column">
+        <div class="column1">
+          <div *ngIf="cardInfo">
+            <h2>Card Information</h2>
+            <img src="{{ cardInfo.data.images.small }}" alt="Card Image">
+
+          </div>
+        </div>
+        <div class="column2">
           <div *ngIf="cardInfo">
             <h2>Card Information</h2>
             <img src="{{ cardInfo.data.images.small }}" alt="Card Image">
           </div>
         </div>
-        <div class="column">
+        <div class="column3">
           <div *ngIf="cardInfo">
             <h2>Card Information</h2>
             <img src="{{ cardInfo.data.images.small }}" alt="Card Image">
           </div>
         </div>
-        <div class="column">
-          <div *ngIf="cardInfo">
-            <h2>Card Information</h2>
-            <img src="{{ cardInfo.data.images.small }}" alt="Card Image">
-          </div>
-        </div>
-        <div class="column">
+        <div class="column4">
           <div *ngIf="cardInfo">
             <h2>Card Information</h2>
             <img src="{{ cardInfo.data.images.small }}" alt="Card Image">

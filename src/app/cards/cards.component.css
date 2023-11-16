@@ -38,13 +38,34 @@
 .column {
     flex: 33.33%;
     padding: 25px;
+
+}
+.column1 {
+    flex: 33.33%;
+    padding-right: 100px; 
+    padding-left: 200px;
+    padding-top: 25px;
+}
+.column2 {
+    flex: 33.33%;
+    padding-right: 100px; 
+    padding-top: 25px;
+}
+.column3 {
+    flex: 33.33%;
+    padding-right: 100px; 
+    padding-top: 25px;
+}
+.column4 {
+    flex: 33.33%;
+    padding-right: 100px; 
+    padding-top: 25px;
 }
 .left-div {
     position: absolute; /* Position the div absolutely */
     left: 0;            /* Align it to the left edge of the viewport */
     top: 0;             /* Align it to the top edge of the viewport (optional) */
     width: 200px;       /* Set a specific width if needed */
-    height: 0%;       /* Set a specific height or use 100% for full height */
-    background-color: #f0f0f0; /* Add a background color for visibility */
+    height: 100%;       /* Set a specific height or use 100% for full height */
     margin-top: 100px;
 }
