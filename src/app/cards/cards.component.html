@@ -1,42 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        
-    </head>
-    <!-- Displays the image of the base set Charizard card. -->
-    <div class="centerContainer">
-      <div class="row">
-        <div class="left-div">
-          <h1 id="Cards-Header">
-            Cards
-          </h1>
-          <button id="pokeBtn" (click)="logMessage()">Click This</button> 
-          <!-- (click)="fourPokemonInfo()" -->
-        </div>
-        <div class="column1">
-          <div *ngIf="cardInfo">
-            <h2>Card Information</h2>
-            <img src="{{ cardInfo.data.images.small }}" alt="Card Image">
-          </div>
-        </div>
-        <div class="column2">
-          <div *ngIf="cardInfo">
-            <h2>Card Information</h2>
-            <img src="{{ cardInfo.data.images.small }}" alt="Card Image">
-          </div>
-        </div>
-        <div class="column3">
-          <div *ngIf="cardInfo">
-            <h2>Card Information</h2>
-            <img src="{{ cardInfo.data.images.small }}" alt="Card Image">
-          </div>
-        </div>
-        <div class="column4">
-          <div *ngIf="cardInfo">
-            <h2>Card Information</h2>
-            <img src="{{ cardInfo.data.images.small }}" alt="Card Image">
-          </div>
+  <div class="centerContainer">
+    <div class="row">
+      <div class="left-div">
+        <h1 id="Cards-Header">Cards</h1>
+        <button id="pokeBtn" (click)="logMessage()">Click This</button>
+      </div>
+  
+      <div class="column" *ngFor="let cardInfo of cardInfos">
+        <div *ngIf="cardInfo">
+          <h2>Card Information</h2>
+          <img *ngIf="cardInfo.data && cardInfo.data.images && cardInfo.data.images.small" 
+               [src]="cardInfo.data.images.small" 
+               alt="Card Image">
         </div>
       </div>
     </div>
+  </div>
 </html>

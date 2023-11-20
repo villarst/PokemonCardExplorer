@@ -9,37 +9,25 @@ import { PokemonService } from 'src/app/pokemon.service';
 export class CardsComponent {
 
   title = 'Pokemon Cards Page.';
-  cardInfo: any; // This will store the fetched card data
-  cardNumber = '1';
+  cardInfos: any[] = []; // Initialize as an empty array to store fetched card data
+  totalCards = 23; // Total number of cards to fetch
 
   constructor(private pokemonService: PokemonService) { }
 
-  logMessage() {
-    console.log('logMessage() called'); // Add this line to check how many times this function is being called
-    console.log('Successful');
-    var cardId = 'base1-'; //(swsh4-1 would grab swsh first card.)
-    cardId = cardId.concat(this.cardNumber.toString());
+  async logMessage() {
+    console.log('logMessage() called');
 
+    this.cardInfos = []; // Clear the previous data before fetching new cards
 
-    this.pokemonService.showTestCard(cardId).subscribe((data: any) => {
-      this.cardInfo = data;
-      console.log('Card Info:', this.cardInfo);
-    });
-
-    let parsedNumber = parseInt(this.cardNumber, 10); // Convert string to number
-    parsedNumber++; // Increment the number value
-    this.cardNumber = parsedNumber.toString(); // Convert the incremented number back to a string
+    for (let i = 20; i <= this.totalCards; i++) {
+      const cardId = 'swsh3-' + i;
+      try {
+        const data = await this.pokemonService.showTestCard(cardId).toPromise();
+        this.cardInfos.push(data); // Push the fetched card data into the array
+        console.log('Fetched card:', cardId);
+      } catch (error) {
+        console.error('Error fetching card:', cardId, error);
+      }
+    }
   }
-
-  // fourPokemonInfo () {
-  //   const setCode = 'swsh4'; // Replace with the set code you want to fetch (e.g., 'swsh4')
-  //   this.pokemonService.getAllPokemonInSet(setCode)
-  //     .then((cards) => {
-  //       // Handle the fetched cards here
-  //       console.log('All cards:', cards);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching cards:', error);
-  //     });
-  // }
 }
