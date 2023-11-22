@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PokemonService {
   private apiUrl = 'https://api.pokemontcg.io/v2/cards';
-  private apiKey = 'API_KEY'; // Replace with your actual API key
+  private apiKey = '15625e63-354d-4ce5-a221-a5c200ce57f4'; // Replace with your actual API key
 
   constructor(private http: HttpClient) { }
 

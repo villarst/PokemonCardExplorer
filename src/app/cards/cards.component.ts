@@ -10,7 +10,7 @@ export class CardsComponent {
 
   title = 'Pokemon Cards Page.';
   cardInfos: any[] = []; // Initialize as an empty array to store fetched card data
-  totalCards = 23; // Total number of cards to fetch
+  totalCards = 189; // Total number of cards to fetch
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -19,7 +19,7 @@ export class CardsComponent {
 
     this.cardInfos = []; // Clear the previous data before fetching new cards
 
-    for (let i = 20; i <= this.totalCards; i++) {
+    for (let i = 1; i <= this.totalCards; i++) {
       const cardId = 'swsh3-' + i;
       try {
         const data = await this.pokemonService.showTestCard(cardId).toPromise();

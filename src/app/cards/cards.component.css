@@ -10,11 +10,41 @@
     font-weight: normal;
     font-style: normal;
 }
-.centerContainer { 
-    display: flex;
-    justify-content: center; /* Center horizontally */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
     margin-top: 0px;
+    justify-content: center;
 }
+/* .centerContainer {  */
+    /* display: flex; */
+    /* justify-content: center; Center horizontally */
+    /* margin-top: 0px; */
+/* } */
+.grid-left-side {
+    position: absolute; /* Position the div absolutely */
+    left: 0;            /* Align it to the left edge of the viewport */
+    top: 0;             /* Align it to the top edge of the viewport (optional) */
+    width: 200px;       /* Set a specific width if needed */
+    height: 100%;       /* Set a specific height or use 100% for full height */
+    margin-top: 100px;
+    margin-right: 300px;
+}
+
+.card-slots {
+    flex: 33.33%;
+    padding: 25px;
+}
+
+/* .left-div {
+    position: absolute; /* Position the div absolutely */
+    /* left: 0;            Align it to the left edge of the viewport */
+    /* top: 0;             Align it to the top edge of the viewport (optional) */
+    /* width: 200px;       Set a specific width if needed */
+    /* height: 100%;       Set a specific height or use 100% for full height */
+    /* margin-top: 100px; */
+/* } */
 #pokeBtn {
     width: 100px;
     height: 50px;
@@ -35,37 +65,7 @@
 .row {
     display: flex;
 }
-.column {
+/* .column {
     flex: 33.33%;
     padding: 25px;
-
-}
-.column1 {
-    flex: 33.33%;
-    padding-right: 100px; 
-    padding-left: 200px;
-    padding-top: 25px;
-}
-.column2 {
-    flex: 33.33%;
-    padding-right: 100px; 
-    padding-top: 25px;
-}
-.column3 {
-    flex: 33.33%;
-    padding-right: 100px; 
-    padding-top: 25px;
-}
-.column4 {
-    flex: 33.33%;
-    padding-right: 100px; 
-    padding-top: 25px;
-}
-.left-div {
-    position: absolute; /* Position the div absolutely */
-    left: 0;            /* Align it to the left edge of the viewport */
-    top: 0;             /* Align it to the top edge of the viewport (optional) */
-    width: 200px;       /* Set a specific width if needed */
-    height: 100%;       /* Set a specific height or use 100% for full height */
-    margin-top: 100px;
-}
+} */
