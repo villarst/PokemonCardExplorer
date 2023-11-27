@@ -13,15 +13,14 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    /* grid-template-columns: auto auto auto auto auto; */
     margin-top: 0px;
     justify-content: center;
+
+    grid-template-columns: repeat(5, 16%);
+    gap: 10px;
 }
-/* .centerContainer {  */
-    /* display: flex; */
-    /* justify-content: center; Center horizontally */
-    /* margin-top: 0px; */
-/* } */
+
 .grid-left-side {
     position: absolute; /* Position the div absolutely */
     left: 0;            /* Align it to the left edge of the viewport */
@@ -33,18 +32,23 @@
 }
 
 .card-slots {
+    margin-left: 150px;
     flex: 33.33%;
-    padding: 25px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-/* .left-div {
-    position: absolute; /* Position the div absolutely */
-    /* left: 0;            Align it to the left edge of the viewport */
-    /* top: 0;             Align it to the top edge of the viewport (optional) */
-    /* width: 200px;       Set a specific width if needed */
-    /* height: 100%;       Set a specific height or use 100% for full height */
-    /* margin-top: 100px; */
-/* } */
+.card-name {
+    /* Ensure the text does not overflow */
+    font-family: "Kanit-Light", serif;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 #pokeBtn {
     width: 100px;
     height: 50px;
@@ -62,10 +66,85 @@
     margin-top: 0px;
     font-weight: 900;
 }
-.row {
-    display: flex;
+
+
+
+
+
+.checkboxes-labels{
+    white-space: nowrap; /* Prevents wrapping */
 }
-/* .column {
-    flex: 33.33%;
-    padding: 25px;
-} */
+
+.label1, .switch {
+    display: inline-block;
+    vertical-align: top; /* Aligns them vertically */
+}
+
+.label1 {
+    margin-left: 20px;
+    padding-right: 0px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 100px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #6c6c6c;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #6c6c6c;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

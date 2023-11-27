@@ -10,7 +10,14 @@ export class CardsComponent {
 
   title = 'Pokemon Cards Page.';
   cardInfos: any[] = []; // Initialize as an empty array to store fetched card data
-  totalCards = 189; // Total number of cards to fetch
+
+  // name_age = {
+  //   'sahil': 25,
+  //   'anaya': 8,
+  //   'atul': 16
+  // };
+
+  totalCards = 11; // Total number of cards to fetch
 
   constructor(private pokemonService: PokemonService) { }
 
