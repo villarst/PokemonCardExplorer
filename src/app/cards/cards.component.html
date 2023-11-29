@@ -3,16 +3,22 @@
   <div class="grid-container">
     <div class="grid-left-side">
       <h1 id="Cards-Header">Cards</h1>
-      <button id="pokeBtn" (click)="logMessage()">Click This</button>
-      
+      <button id="pokeBtn" (click)="logMessage()">Apply</button>
       
 
       <!-- Rounded switch -->
       <div class="checkboxes-labels">
-        <label class="label1">Darkness Ablaze</label>
-
+        <label class="filter-labels">Darkness Ablaze</label>
         <label class="switch">
-          <input type="checkbox">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'darknessAblaze')">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="checkboxes-labels">
+        <label class="filter-labels">Battle Styles</label>
+        <label class="switch">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'battleStyles')">
           <span class="slider round"></span>
         </label>
       </div>
