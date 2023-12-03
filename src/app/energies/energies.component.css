@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Kanit-ExtraLight';
+    src: url("src/assets/Fonts/Kanit/Kanit-ExtraLight.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kanit-Light';
+    src: url("src/assets/Fonts/Kanit/Kanit-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kanit-Regular';
+    src: url("src/assets/Fonts/Kanit/Kanit-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+#title{
+    margin-top: 40px;
+    text-align: center;
+    font-family: "Kanit-Regular", sans-serif;
+    text-decoration:underline solid;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: #ffffff;
+    margin-top: 50px;
+    justify-content: space-evenly;
+    padding-bottom: 190px;
+}
+.grid-item {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+.energy-headers {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Kanit-Regular', sans-serif;
+}

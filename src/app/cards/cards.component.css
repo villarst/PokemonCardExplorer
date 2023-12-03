@@ -22,7 +22,6 @@
     /* grid-template-columns: auto auto auto auto auto; */
     margin-top: 0px;
     justify-content: center;
-
     grid-template-columns: repeat(5, 16%);
     gap: 10px;
 }
@@ -33,8 +32,7 @@
     top: 0;             /* Align it to the top edge of the viewport (optional) */
     width: 200px;       /* Set a specific width if needed */
     height: 100%;       /* Set a specific height or use 100% for full height */
-    margin-top: 100px;
-    margin-right: 300px;
+    margin-top: 60px;
 }
 
 .card-slots {
@@ -54,23 +52,26 @@
     overflow: hidden;
     white-space: nowrap;
 }
-
-#pokeBtn {
-    width: 90px;
-    height: 40px;
-    font-size: 15px;
-    background-color: #007d68; /* Button background color */
-    color: #fff; /* Text color */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Add cursor pointer on hover */
-    margin-left: 60px;
-}
 #Cards-Header {
     font-size: 35px;
     font-family: "Kanit-Light", serif;
-    padding-left: 60px;
-    margin-top: 0px;
+    margin-left: 60px;
     font-weight: 900;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+#pokeBtn {
+    width: 120px;
+    height: 30px;
+    font-size: 16px;
+    background-color: rgb(4, 252, 0); /* Button background color */
+    color: #000000; /* Text color */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Add cursor pointer on hover */
+    margin-left: 40px;
+    margin-top: 10px;
 }
 
 
@@ -87,12 +88,11 @@
 }
 
 .filter-labels {
-    margin-top: 30px;
+    /* margin-top: 20px; */
     margin-left: 20px;
-    padding-right: 0px;
-    font-size: 25px;
+    font-size: 20px;
     font-family: "Kanit-Regular", serif;
-
+    margin-top: 30px;
 
     /* border: 2px solid #333;
     outline: 2px solid blue;
