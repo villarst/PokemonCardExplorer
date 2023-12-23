@@ -8,6 +8,22 @@
 
       <!-- Rounded switch -->
       <div class="checkboxes-labels">
+        <label class="filter-labels">Sword and Shield</label>
+        <label class="switch">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'swordShield')">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="checkboxes-labels">
+        <label class="filter-labels">Rebel Clash</label>
+        <label class="switch" style="margin-left: 90px;">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'rebelClash')">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="checkboxes-labels">
         <label class="filter-labels">Darkness Ablaze</label>
         <label class="switch">
           <input type="checkbox" (change)="onCheckboxChange($event, 'darknessAblaze')">
@@ -16,9 +32,17 @@
       </div>
 
       <div class="checkboxes-labels">
-        <label class="filter-labels">Battle Styles</label>
+        <label class="filter-labels">Champions Path</label>
         <label class="switch">
-          <input type="checkbox" (change)="onCheckboxChange($event, 'battleStyles')">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'championsPath')">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="checkboxes-labels">
+        <label class="filter-labels">Obsidian Flames</label>
+        <label class="switch">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'obsidianFlames')">
           <span class="slider round"></span>
         </label>
       </div>
