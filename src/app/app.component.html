@@ -12,8 +12,8 @@
         <li id="searchHeader">
           <form id="form" role="search">
             <input type="search" id="searchBox" #searchInput name="q" placeholder="Charizard..." aria-label="Search through site content">
-              <button id="searchButton" (click)="fetchData()">
-              <!-- <button id="searchButton" (click)="showSearchResults(searchInput.value)"> -->
+              <!-- <button type="button" id="searchButton" (click)="fetchData()"> -->
+              <button type="button" id="searchButton" (click)="showSearchResults(searchInput.value)">
 
                 <img style="padding-top: 3px; padding-left: 4px;" width="24px" height="24px" src="assets/UI-elements/search-icon1.png" alt="search">
               </button>
