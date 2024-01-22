@@ -1,28 +1,24 @@
-# TradingCardWebsite
+# Pokémon Card Explorer
+Welcome to Pokémon Card Explorer, a web application built with Angular and TypeScript that lets you explore a vast collection of Pokémon cards. This project harnesses the power of the Pokémon TCG API to seamlessly fetch and display card images along with detailed statistics.
 
-This is a website that I am currently building that show cases some aspects of web development.
+# Features
+**Dynamic Display:** Browse through a diverse range of Pokémon cards with ease.
 
-## Development server
+**Filtering Options:** Tailor your exploration by filtering cards based on set names, card names, and more.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**Interactive UI:** Enjoy a user-friendly interface that enhances your overall experience.
 
-## Code scaffolding
+**Angular-Powered:** Leveraging the Angular framework for a robust and responsive web application.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**TypeScript Integration:** Enhance code maintainability and scalability with TypeScript.
 
-## Build
+# Getting Started
+Clone this repository.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install dependencies using npm install.
 
-## Running unit tests
+Run the application with ng serve.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Open your browser and navigate to http://localhost:4200/.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
->>>>>>> develop
+Explore the Pokémon Card Explorer and dive into the captivating world of Pokémon trading cards like never before!
