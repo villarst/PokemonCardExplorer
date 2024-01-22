@@ -2,6 +2,7 @@
 Welcome to Pokémon Card Explorer, a web application built with Angular and TypeScript that lets you explore a vast collection of Pokémon cards. This project harnesses the power of the Pokémon TCG API to seamlessly fetch and display card images along with detailed statistics.
 
 # Features
+![Image of the Pokemon Card Exploreer Website](src/assets/Screenshot_Of_Website/website.png)
 **Dynamic Display:** Browse through a diverse range of Pokémon cards with ease.
 
 **Filtering Options:** Tailor your exploration by filtering cards based on set names, card names, and more.
