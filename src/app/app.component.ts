@@ -25,6 +25,12 @@ export class AppComponent {
     }
   }
 
+  // onFormSubmit(event: Event): void {
+  //   event.preventDefault(); // Prevent the default form submission behavior
+  //   const searchInput = document.getElementById('searchBox') as HTMLInputElement;
+  //   this.showSearchResults(searchInput.value);
+  // }
+
   // async fetchData(): Promise<void> {
   //   try {
   //     console.log('Here');

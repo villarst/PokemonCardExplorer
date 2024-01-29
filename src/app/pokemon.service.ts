@@ -24,8 +24,15 @@ export class PokemonService {
     // return this.http.get(url, { headers });
 
     try {
-      const response = await fetch('https://api.pokemontcg.io/v2/cards?q=name:charizard');
+      // const response = await fetch('https://api.pokemontcg.io/v2/cards?q=name');
+      //     // const url = `${skeletonURL}:${cardCharacter}`; // Corrected URL construction
+      // const data = await response.json();
+
+      const skeletonURL = 'https://api.pokemontcg.io/v2/cards?q=name';
+      const url = `${skeletonURL}:${cardCharacter}`; // Corrected URL construction
+      const response = await fetch(url);
       const data = await response.json();
+      // console.log('URL:', url); // Log the constructed URL
   
       // Check if the response contains data
       if (data && data.data && Array.isArray(data.data)) {
