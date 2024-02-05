@@ -6,8 +6,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class PokemonService {
   private apiKey = '15625e63-354d-4ce5-a221-a5c200ce57f4'; // Replace with your actual API key
+  
+  
+  public cardInfos: any[] = [];
+  updateCardInfos(newCardInfos: any[]): void {
+    this.cardInfos = newCardInfos;
+    console.log('Update Called.');
+  }
 
-  constructor(private http: HttpClient) { }
+  clearCardInfos(): void {
+    this.cardInfos = [];
+    console.log('Clear Called.');
+  }
+
+  
+  constructor(
+    private http: HttpClient
+    
+    ) {
+
+    }
 
   showTestCard(cardId: string) {
     const skeletonURL = 'https://api.pokemontcg.io/v2/cards';
@@ -16,42 +34,46 @@ export class PokemonService {
     return this.http.get(url, { headers });
   }
 
+  // showPokemonSearchResults(cardCharacter: string) {
+  //   const skeletonURL = 'https://api.pokemontcg.io/v2/cards?q=name';
+  //   const url = `${skeletonURL}:${cardCharacter}`;
+  //   const headers = new HttpHeaders().set('X-Api-Key', this.apiKey);
+  //   return this.http.get(url, { headers });
+  // }
+
+
+  // showPokemonSearchResults(cardCharacter: string) {
+  //   const skeletonURL = 'https://api.pokemontcg.io/v2/cards?q=name';
+  //   const url = `${skeletonURL}:${cardCharacter}`;
+  
+  //   return fetch(url)
+  //     .then(response => {
+  //       console.log('Response is: ', response);
+  //       return response.json();
+  //     })
+  //     .then(data => {
+  //       return data; // Return the entire response for processing in the component
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching search results:', error);
+  //       throw error; // Propagate the error to the calling method
+  //     });
+  // }
+
   async showPokemonSearchResults(cardCharacter: string) {
-    // const skeletonURL = 'https://api.pokemontcg.io/v2/cards?q=name';
-    // const url = `${skeletonURL}:${cardCharacter}`; // Corrected URL construction
-    // console.log('URL:', url); // Log the constructed URL
-    // const headers = new HttpHeaders().set('X-Api-Key', this.apiKey);
-    // return this.http.get(url, { headers });
-
     try {
-      // const response = await fetch('https://api.pokemontcg.io/v2/cards?q=name');
-      //     // const url = `${skeletonURL}:${cardCharacter}`; // Corrected URL construction
-      // const data = await response.json();
-
       const skeletonURL = 'https://api.pokemontcg.io/v2/cards?q=name';
-      const url = `${skeletonURL}:${cardCharacter}`; // Corrected URL construction
+      const url = `${skeletonURL}:${cardCharacter}`;
       const response = await fetch(url);
-      const data = await response.json();
-      // console.log('URL:', url); // Log the constructed URL
-  
-      // Check if the response contains data
-      if (data && data.data && Array.isArray(data.data)) {
-        const dataArray = data.data; // This is the array of Pokemon cards
-  
-        // Now you can work with the array as needed
-        console.log(dataArray); // Display the array of Pokemon cards in the console
-  
-        // You can iterate through the array, access individual cards, or perform any operations you need
-        for (const card of dataArray) {
-          console.log(`Name: ${card.name}, HP: ${card.hp}, Rarity: ${card.rarity}`);
-          // Access other properties as needed and perform operations
-        }
-      } else {
-        console.log('No data found');
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
 
+      console.log('Response is: ', response);
+      const data = await response.json();
+  
+      return data; // Return the entire response for processing in the component
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+      throw error; // Propagate the error to the calling method
+    }
   }
+  
 }

@@ -12,56 +12,17 @@ export class AppComponent {
 
   constructor(private pokemonService: PokemonService) { }
 
-  async showSearchResults(inputCharacter: string) {
-    console.log('Successful');
-    this.cardInfos = []; // Clear the previous data before fetching new cards
+  // async showSearchResults(inputCharacter: string) {
+  //   console.log('Successful');
+  //   this.cardInfos = []; // Clear the previous data before fetching new cards
 
-    try {
-      const data = await this.pokemonService.showPokemonSearchResults(inputCharacter);
-      this.cardInfos.push(data); // Push the fetched card data into the array
-      console.log('Fetched cards.');
-    } catch (error) {
-      console.error('Error fetching cards', error);
-    }
-  }
-
-  // onFormSubmit(event: Event): void {
-  //   event.preventDefault(); // Prevent the default form submission behavior
-  //   const searchInput = document.getElementById('searchBox') as HTMLInputElement;
-  //   this.showSearchResults(searchInput.value);
-  // }
-
-  // async fetchData(): Promise<void> {
   //   try {
-  //     console.log('Here');
-  //     const apiKey = '15625e63-354d-4ce5-a221-a5c200ce57f4'; // Replace 'YOUR_API_KEY' with your actual API key
-
-  //     const response = await fetch('https://api.pokemontcg.io/v2/cards?q=name:charizard', {
-  //       headers: {
-  //         'X-Api-Key': apiKey
-  //       }
-  //     });
-  //     const data = await response.json();
-
-  //     // Check if the response contains data
-  //     if (data && data.data && Array.isArray(data.data)) {
-  //       const dataArray = data.data;
-
-  //       // Display the array of Pokemon cards in the console
-  //       console.log(dataArray);
-
-  //       // Iterate through the array and log information about each card
-  //       for (const card of dataArray) {
-  //           console.log(`Name: ${card.name}, HP: ${card.hp}, Rarity: ${card.rarity}`);
-  //           // Access other properties as needed and perform operations
-  //       }
-  //     } 
-  //     else {
-  //       console.log('No data found');
-  //     }
-  //   } 
-  //   catch (error) {
-  //     console.error('Error fetching data:', error);
+  //     const data = await this.pokemonService.showPokemonSearchResults(inputCharacter);
+  //     this.cardInfos.push(data); // Push the fetched card data into the array
+  //     this.pokemonService.updateCardInfos(this.cardInfos);
+  //     console.log('Fetched cards.');
+  //   } catch (error) {
+  //     console.error('Error fetching cards', error);
   //   }
   // }
 }

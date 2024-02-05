@@ -22,19 +22,45 @@ export class CardsComponent {
   championsPathChecked: boolean = false;
   obsidianFlamesChecked: boolean = false;
 
+  searchBtnClicked: boolean = false;
 
+  constructor(
+    private pokemonService: PokemonService) { }
 
-  constructor(private pokemonService: PokemonService) { }
-
-
-  async displaySearch(){
-    console.log('displaySearch() called');
-    this.cardInfos = [];
+  ngOnInit(): void {
+    // Assign the data from the shared service to your component property
+    this.cardInfos = this.pokemonService.cardInfos;
   }
 
+  updateCardInfos(newCardInfos: any[]): void {
+    this.pokemonService.updateCardInfos(newCardInfos);
+  }
 
-  async logMessage() {
-    console.log('logMessage() called');
+  async showSearchResults(inputCharacter: string) {
+    this.searchBtnClicked = true;
+    this.cardInfos = []; // Clear the previous data before fetching new cards
+    console.log('Search Button Clicked');
+    this.pokemonService.clearCardInfos();
+  
+    try {
+      const data = await this.pokemonService.showPokemonSearchResults(inputCharacter);
+      console.log('Fetched raw data:', data); // Log the raw data received from the API
+  
+      if (data && data.data && Array.isArray(data.data)) {
+        this.cardInfos = data.data; // Update cardInfos with the search results
+        console.log('Fetched search results:', this.cardInfos);
+        console.log('Card One: ', this.cardInfos[0].name )
+        this.updateCardInfos(this.cardInfos);
+      } else {
+        console.log('No search results found');
+      }
+    } catch (error) {
+      console.error('Error fetching search results', error);
+    }
+  }
+
+  async applyHit() {
+    console.log('applyHit() called');
     this.cardInfos = []; // Clear the previous data before fetching new cards
   
     // Apply checkbox states before fetching cards
@@ -106,6 +132,8 @@ export class CardsComponent {
     else{
 
     }
+    this.updateCardInfos(this.cardInfos);
+
   }
 
   onCheckboxChange(event: any, checkbox: string) {

@@ -3,9 +3,17 @@
   <div class="grid-container">
     <div class="grid-left-side">
       <h1 id="Cards-Header">Cards</h1>
-      <button id="pokeBtn" (click)="logMessage()">Apply</button>
-      
+      <button id="pokeBtn" (click)="applyHit()">Apply</button>
 
+
+      <div id="form" role="search">
+        <input type="search" id="searchBox" #searchInput name="q" placeholder="Charizard..." aria-label="Search through site content">
+        <button type="button" id="searchButton" (click)="showSearchResults(searchInput.value)">
+          <img style="padding-top: 3px; padding-left: 4px;" width="24px" height="24px" src="assets/UI-elements/search-icon1.png" alt="search">
+        </button>
+      </div>
+
+      
       <!-- Rounded switch -->
       <div class="checkboxes-labels">
         <label class="filter-labels">Sword and Shield</label>
@@ -47,11 +55,9 @@
         </label>
       </div>
       
-
-
-
     </div>
-    <div class="card-slots" *ngFor="let cardInfo of cardInfos">
+    <!-- HERE -->
+    <!-- <div class="card-slots" *ngFor="let cardInfo of cardInfos">
       <div *ngIf="cardInfo">
         <h2 class="card-name">
           {{ cardInfo.data.name }}
@@ -60,6 +66,20 @@
              [src]="cardInfo.data.images.small" 
              alt="Card Image">
       </div>
+    </div> -->
+
+    <div class="card-slots" *ngFor="let cardInfo of cardInfos">
+      <div *ngIf="cardInfo || cardInfo.data">
+        <!-- <pre>{{ cardInfo | json }}</pre> -->
+        <h2 class="card-name" *ngIf="cardInfo?.name || cardInfo?.data?.name">
+          {{ cardInfo?.name || cardInfo?.data?.name }}
+        </h2>
+        <img *ngIf="(cardInfo?.images || cardInfo?.data?.images) && 
+                    (cardInfo?.images?.small || cardInfo?.data?.images?.small)" 
+             [src]="cardInfo?.images?.small || cardInfo?.data?.images?.small" 
+             alt="Card Image">
+      </div>
     </div>
+    <!-- HERE -->
   </div>
 </html>
