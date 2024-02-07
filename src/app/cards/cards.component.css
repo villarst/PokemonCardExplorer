@@ -17,51 +17,88 @@
     font-style: normal;
 }
 
-.grid-container {
-    display: grid;
-    /* grid-template-columns: auto auto auto auto auto; */
-    margin-top: 0px;
-    justify-content: center;
-    grid-template-columns: repeat(5, 16%);
-    gap: 10px;
-}
-
-.grid-left-side {
-    position: absolute; /* Position the div absolutely */
-    left: 0;            /* Align it to the left edge of the viewport */
-    top: 0;             /* Align it to the top edge of the viewport (optional) */
-    width: 200px;       /* Set a specific width if needed */
-    height: 100%;       /* Set a specific height or use 100% for full height */
-    margin-top: 60px;
-}
-
-.card-slots {
-    margin-left: 280px; /* How far to the lef the cards start */
-    flex: 33.33%;
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
 .card-name {
     /* Ensure the text does not overflow */
     font-family: "Kanit-Light", serif;
     overflow: hidden;
     white-space: nowrap;
 }
+
+.card-slots {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+
+}
+
+.card {
+    width: 20%;
+    box-sizing: border-box;
+    padding: 10px; /* Add padding or margin to create space between images */
+}
+
+#Filters-Header {
+    font-size: 30px;
+    font-family: "Kanit-Light", serif;
+    margin-bottom: 0px;
+    margin-top: 14px;
+    margin-left: 20px;
+    padding-right: 167px;
+    margin-right: 0;
+    border-bottom-style: solid;
+    border-color: #a5a5a5;
+    border-width: 2px;
+    line-height: 40px;
+}
+#filters-logo {
+    height: 22px;
+    width: 22px;
+    margin-left: 20px;
+    margin-top: 6px;
+}
+.image-container {
+    position: relative;
+    display: inline-flex;
+}
+
+.transparent-box {
+    position: absolute;
+    top: 0;
+    height: 26px;
+    width: 25px;
+    margin-left: 18px;
+    margin-top: 4px;
+    background-color: rgba(128, 128, 128, 0.5); /* Adjust the last value (0.5) for the transparency */
+    display: none;
+}
+
+.image-container:hover .transparent-box {
+    display: block;
+}
+
+#hide-filters-button {
+    font-family: "Kanit-Light", serif;
+    margin-top: 0px;
+    margin-left: 10px;
+    font-size: 20px;
+    background-color: #ffffff;
+    border: #ffffff;
+    text-decoration: underline; /* Adding an underline to the text */
+}
+#hide-filters-button:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+}
 #Cards-Header {
     font-size: 35px;
     font-family: "Kanit-Light", serif;
-    margin-left: 60px;
+    margin-left: 20px;
     font-weight: 900;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 0px;
+    padding-top: 0px;
     margin-bottom: 0px;
-}
+    padding-bottom: 0px;
+} 
+
 #pokeBtn {
     width: 120px;
     height: 30px;
@@ -74,12 +111,8 @@
     margin-top: 10px;
 }
 
-
-
-
-
 #form { /* Search Bar */
-    margin-left: 10px; /* How far to the right the search bar is all together. */
+    margin-left: 17px; /* How far to the right the search bar is all together. */
     margin-top: 20px;
     border: 3px solid #000000; /* Border color of the search bar. */
     background-color: #ffffff;
@@ -113,13 +146,6 @@ svg { /* Magnifying glass. */
 }
 
 
-
-
-
-.checkboxes-labels{
-    white-space: nowrap; /* Prevents wrapping */
-}
-
 .filter-labels, .switch {
     display: inline-block;
     vertical-align: top; /* Aligns them vertically */
@@ -141,9 +167,10 @@ svg { /* Magnifying glass. */
 /* The switch - the box around the slider */
 .switch {
     position: relative;
-    display: inline-block;
+    float: right;
+    margin-right: 2px;
     width: 60px;
-    height: 34px;
+    height: 24px;
     margin-left: 40px;
     margin-top: 33px;
 }
@@ -175,13 +202,13 @@ svg { /* Magnifying glass. */
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 18px;
+    width: 18px;
     left: 4px;
-    bottom: 4px;
+    bottom: 3px;
     background-color: rgb(121, 121, 121);
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .2s;
+    transition: .2s;
 }
 
 input:checked + .slider {
@@ -193,9 +220,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(34px);
+    -ms-transform: translateX(34px);
+    transform: translateX(34px);
 }
 
 /* Rounded sliders */
@@ -205,4 +232,29 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.sidenav {
+    height: 100%;
+    width: 298px;
+    position: fixed;
+    z-index: 1;
+    top: 1;
+    left: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    padding-top: 10px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    display: block;
+}
+
+.sidenav a:hover {
+    /* color: #616161; */
+    background-color: #5b5b5b;
 }

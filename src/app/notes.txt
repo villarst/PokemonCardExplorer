@@ -28,3 +28,76 @@ async showPokemonSearchResults(cardCharacter: string) {
 
 RETURNS:
 response = Response {type: 'cors', url: 'https://api.pokemontcg.io/v2/cards?q=name:pichu', redirected: false, status: 200, ok: true, …}
+
+
+
+
+<div class="grid-container">
+    <div class="grid-left-side">
+
+      <!-- Cards Header -->
+      <h1 id="Cards-Header">Cards</h1>
+
+      <!-- Appky Button -->
+      <button id="pokeBtn" (click)="applyHit()">Apply</button>
+
+      <!-- Search Bar -->
+      <div id="form" role="search">
+        <input type="search" id="searchBox" #searchInput name="q" placeholder="Charizard..." aria-label="Search through site content">
+        <button type="button" id="searchButton" (click)="showSearchResults(searchInput.value)">
+          <img style="padding-top: 3px; padding-left: 4px;" width="24px" height="24px" src="assets/UI-elements/search-icon1.png" alt="search">
+        </button>
+      </div>
+      
+      <!-- Rounded switches -->
+      <div class="checkboxes-labels">
+        <label class="filter-labels">Sword and Shield</label>
+        <label class="switch">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'swordShield')">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="checkboxes-labels">
+        <label class="filter-labels">Rebel Clash</label>
+        <label class="switch" style="margin-left: 90px;">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'rebelClash')">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="checkboxes-labels">
+        <label class="filter-labels">Darkness Ablaze</label>
+        <label class="switch">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'darknessAblaze')">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="checkboxes-labels">
+        <label class="filter-labels">Champions Path</label>
+        <label class="switch">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'championsPath')">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="checkboxes-labels">
+        <label class="filter-labels">Obsidian Flames</label>
+        <label class="switch">
+          <input type="checkbox" (change)="onCheckboxChange($event, 'obsidianFlames')">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Image Grid -->
+    <div class="card-slots" *ngFor="let cardInfo of cardInfos">
+      <div *ngIf="cardInfo || cardInfo.data">
+        <h2 class="card-name" *ngIf="cardInfo?.name || cardInfo?.data?.name">
+          {{ cardInfo?.name || cardInfo?.data?.name }}
+        </h2>
+        <img *ngIf="(cardInfo?.images || cardInfo?.data?.images) && 
+                    (cardInfo?.images?.small || cardInfo?.data?.images?.small)" 
+             [src]="cardInfo?.images?.small || cardInfo?.data?.images?.small" 
+             alt="Card Image">
+      </div>
+    </div>
+
+  </div>

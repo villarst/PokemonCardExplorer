@@ -22,7 +22,13 @@ export class CardsComponent {
   championsPathChecked: boolean = false;
   obsidianFlamesChecked: boolean = false;
 
-  searchBtnClicked: boolean = false;
+  paldeanFates: boolean = false;
+
+
+
+
+  transparentBoxVisible: boolean = false;
+
 
   constructor(
     private pokemonService: PokemonService) { }
@@ -36,8 +42,32 @@ export class CardsComponent {
     this.pokemonService.updateCardInfos(newCardInfos);
   }
 
+  showTransparentBox() {
+    this.transparentBoxVisible = true;
+  }
+
+  hideTransparentBox() {
+    this.transparentBoxVisible = false;
+  }
+
+  hideFilterInfo() {
+    const elementToToggle1 = document.getElementById('Filters-Header');
+    const elementToToggle2 = document.getElementById('sets');
+
+    if (elementToToggle1 && elementToToggle2) {
+        if (elementToToggle1.style.display === 'none' && elementToToggle2.style.display === 'none') {
+            // If both elements are currently hidden, show them
+            elementToToggle1.style.display = 'block'; // You can use 'flex', 'inline-block', or other values as needed
+            elementToToggle2.style.display = 'block';
+        } else {
+            // If at least one element is visible, hide them both
+            elementToToggle1.style.display = 'none';
+            elementToToggle2.style.display = 'none';
+        }
+    }
+  }
+
   async showSearchResults(inputCharacter: string) {
-    this.searchBtnClicked = true;
     this.cardInfos = []; // Clear the previous data before fetching new cards
     console.log('Search Button Clicked');
     this.pokemonService.clearCardInfos();
@@ -59,12 +89,31 @@ export class CardsComponent {
     }
   }
 
-  async applyHit() {
-    console.log('applyHit() called');
+  async applyHit(event: any, checkbox: string) {
+    console.log('checkbox hit so applyHit() and onCheckboxChange() called');
+
+    
+    this.onCheckboxChange(event, checkbox);
+
+
+
     this.cardInfos = []; // Clear the previous data before fetching new cards
-  
+    this.onCheckboxChange
     // Apply checkbox states before fetching cards
-    if (this.swordShieldChecked) {
+    if (this.paldeanFates) {
+      this.totalCards = this.cards_in_sets['sv4pt5'];
+      for (let i = 1; i <= this.totalCards; i++) {
+        const cardId = 'sv4pt5-' + i;
+        try {
+          const data = await this.pokemonService.showTestCard(cardId).toPromise();
+          this.cardInfos.push(data); // Push the fetched card data into the array
+          console.log('Fetched card:', cardId);
+        } catch (error) {
+          console.error('Error fetching card:', cardId, error);
+        }
+      }
+    } 
+    else if (this.swordShieldChecked) {
       this.totalCards = this.cards_in_sets['swsh-1'];
       for (let i = 1; i <= this.totalCards; i++) {
         const cardId = 'swsh1-' + i;
@@ -173,6 +222,14 @@ export class CardsComponent {
       this.obsidianFlamesChecked = event.target.checked;
       if (this.obsidianFlamesChecked) {
         this.totalCards = this.cards_in_sets['sv-3']; // Set totalCards to 216 when Darkness Ablaze is checked
+      } else {
+        // Set totalCards to the default value or any other desired value when unchecked
+        this.totalCards = 11;
+      }
+    } else if (checkbox === 'paldeanFates') {
+      this.paldeanFates = event.target.checked;
+      if (this.paldeanFates) {
+        this.totalCards = this.cards_in_sets['sv4pt5']; // Set totalCards to 216 when Darkness Ablaze is checked
       } else {
         // Set totalCards to the default value or any other desired value when unchecked
         this.totalCards = 11;

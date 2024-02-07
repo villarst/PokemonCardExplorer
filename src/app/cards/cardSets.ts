@@ -5,8 +5,10 @@ export const cardsInSets: { [key: string]: number } = {
     'swsh-2': 209,
     'swsh-3': 206,
     'swsh-35': 80,
-    'sv-3': 230
+    'sv-3': 230,
+    'sv4pt5': 245
     // Add other sets here as needed
+    
 };
 
 export const setsMap: Map<string, string[]> = new Map<string, string[]>();
@@ -25,4 +27,7 @@ setsMap.get('Champions Path')?.push('80');
 
 setsMap.set('Obsidian Flames', ['sv-3']);
 setsMap.get('Obsidian Flames')?.push('230');
+
+setsMap.set('Paldean Fates', ['sv4pt5']);
+setsMap.get('Paldean Fates')?.push('245');
 // Add other mappings here as needed
