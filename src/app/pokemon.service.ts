@@ -34,32 +34,6 @@ export class PokemonService {
     return this.http.get(url, { headers });
   }
 
-  // showPokemonSearchResults(cardCharacter: string) {
-  //   const skeletonURL = 'https://api.pokemontcg.io/v2/cards?q=name';
-  //   const url = `${skeletonURL}:${cardCharacter}`;
-  //   const headers = new HttpHeaders().set('X-Api-Key', this.apiKey);
-  //   return this.http.get(url, { headers });
-  // }
-
-
-  // showPokemonSearchResults(cardCharacter: string) {
-  //   const skeletonURL = 'https://api.pokemontcg.io/v2/cards?q=name';
-  //   const url = `${skeletonURL}:${cardCharacter}`;
-  
-  //   return fetch(url)
-  //     .then(response => {
-  //       console.log('Response is: ', response);
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       return data; // Return the entire response for processing in the component
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching search results:', error);
-  //       throw error; // Propagate the error to the calling method
-  //     });
-  // }
-
   async showPokemonSearchResults(cardCharacter: string) {
     try {
       const skeletonURL = 'https://api.pokemontcg.io/v2/cards?q=name';

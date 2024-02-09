@@ -12,7 +12,7 @@ import { EnergiesComponent } from './energies/energies.component';
     AppComponent,
     AboutComponent,
     CardsComponent,
-    EnergiesComponent
+    EnergiesComponent,
   ],
   imports: [
     BrowserModule,
