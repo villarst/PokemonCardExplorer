@@ -21,13 +21,16 @@ export class CardsComponent {
   darknessAblazeChecked: boolean = false;
   championsPathChecked: boolean = false;
   obsidianFlamesChecked: boolean = false;
+  paldeanFatesChecked: boolean = false;
 
-  paldeanFates: boolean = false;
-
+  checkboxArray: boolean[] = [this.swordShieldChecked, 
+  this.rebelClashChecked, this.darknessAblazeChecked, this.championsPathChecked, 
+  this.obsidianFlamesChecked, this.paldeanFatesChecked]; 
 
 
 
   transparentBoxVisible: boolean = false;
+  // searchInitiated: boolean = true;
 
 
   constructor(
@@ -71,6 +74,7 @@ export class CardsComponent {
     this.cardInfos = []; // Clear the previous data before fetching new cards
     console.log('Search Button Clicked');
     this.pokemonService.clearCardInfos();
+    // this.searchInitiated = true;
   
     try {
       const data = await this.pokemonService.showPokemonSearchResults(inputCharacter);
@@ -91,18 +95,19 @@ export class CardsComponent {
 
   async applyHit(event: any, checkbox: string) {
     console.log('checkbox hit so applyHit() and onCheckboxChange() called');
-
-    
     this.onCheckboxChange(event, checkbox);
-
-
-
     this.cardInfos = []; // Clear the previous data before fetching new cards
-    this.onCheckboxChange
+    
     // Apply checkbox states before fetching cards
-    if (this.paldeanFates) {
+    if (this.paldeanFatesChecked) {
+      // var otherCheckboxesClicked = false;
+      // for (const checkbox of this.checkboxArray) {
+      //   console.log(checkbox);
+      // }
+
       this.totalCards = this.cards_in_sets['sv4pt5'];
       for (let i = 1; i <= this.totalCards; i++) {
+        
         const cardId = 'sv4pt5-' + i;
         try {
           const data = await this.pokemonService.showTestCard(cardId).toPromise();
@@ -227,12 +232,14 @@ export class CardsComponent {
         this.totalCards = 11;
       }
     } else if (checkbox === 'paldeanFates') {
-      this.paldeanFates = event.target.checked;
-      if (this.paldeanFates) {
+      this.paldeanFatesChecked = event.target.checked;
+      if (this.paldeanFatesChecked) {
         this.totalCards = this.cards_in_sets['sv4pt5']; // Set totalCards to 216 when Darkness Ablaze is checked
       } else {
         // Set totalCards to the default value or any other desired value when unchecked
-        this.totalCards = 11;
+        this.totalCards = 0;
+        this.cardInfos = [];
+
       }
     }
   }

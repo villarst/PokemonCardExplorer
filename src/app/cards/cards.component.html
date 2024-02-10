@@ -74,94 +74,13 @@
             <span class="slider round"></span>
           </label>
         </div>
-        <!-- <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label class="filter-labels">Obsidian Flames</label>
-          <label class="switch">
-            <input type="checkbox" (change)="applyHit($event, 'obsidianFlames')">
-            <span class="slider round"></span>
-          </label>
-        </div> -->
+        
       </div>
     </div>
     <!-- Image Grid -->
-    <div style="margin-left: 320px;">
+    <div class="card-grid" >
+    <!-- *ngIf="paldeanFatesChecked || swordShieldChecked || rebelClashChecked 
+    || darknessAblazeChecked || championsPathChecked || obsidianFlamesChecked"> -->
       <div class="card-slots">
         <div *ngFor="let cardInfo of cardInfos" class="card">
           <div *ngIf="cardInfo || cardInfo.data">

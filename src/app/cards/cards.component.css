@@ -17,18 +17,25 @@
     font-style: normal;
 }
 
+
+.grid-cont {
+    margin-top: 130px;
+}
 .card-name {
     /* Ensure the text does not overflow */
     font-family: "Kanit-Light", serif;
     overflow: hidden;
     white-space: nowrap;
 }
-
+.card-grid {
+    /* margin-top: 120px; */
+    margin-left: 320px;
+}
 .card-slots {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    margin-top: 120px;
+    /* margin-top: 120px; */
 }
 
 .card {
@@ -243,8 +250,7 @@ input:checked + .slider:before {
     left: 0;
     background-color: #ffffff;
     overflow-x: hidden;
-    padding-top: 10px;
-    margin-top: 0px;
+    /* padding-top: 10px; */
 }
 
 .sidenav a {
