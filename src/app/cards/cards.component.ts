@@ -15,22 +15,30 @@ export class CardsComponent {
   cards_in_sets = cardsInSets; // Use the imported constant
   totalCards = 11; // Total number of cards to fetch
 
+
+
+  checkBoxValues: { set: string, checkedOrNot: boolean}[] = [
+  { "set": "swordShieldChecked", "checkedOrNot": false},
+  { "set": "rebelClashChecked", "checkedOrNot": false },
+  { "set": "darknessAblazeChecked", "checkedOrNot": false },
+  { "set": "championsPathChecked", "checkedOrNot": false },
+  { "set": "obsidianFlamesChecked", "checkedOrNot": false },
+  { "set": "paldeanFatesChecked", "checkedOrNot": false }
+  ];
+
+
   // Add properties to track checkbox states
-  swordShieldChecked: boolean = false;
-  rebelClashChecked: boolean = false;
-  darknessAblazeChecked: boolean = false;
-  championsPathChecked: boolean = false;
-  obsidianFlamesChecked: boolean = false;
-  paldeanFatesChecked: boolean = false;
-
-  checkboxArray: boolean[] = [this.swordShieldChecked, 
-  this.rebelClashChecked, this.darknessAblazeChecked, this.championsPathChecked, 
-  this.obsidianFlamesChecked, this.paldeanFatesChecked]; 
-
-
+  // swordShieldChecked: boolean = false;
+  // rebelClashChecked: boolean = false;
+  // darknessAblazeChecked: boolean = false;
+  // championsPathChecked: boolean = false;
+  // obsidianFlamesChecked: boolean = false;
+  // paldeanFatesChecked: boolean = false;
 
   transparentBoxVisible: boolean = false;
   // searchInitiated: boolean = true;
+
+  isCancelled = false;
 
 
   constructor(
@@ -70,6 +78,7 @@ export class CardsComponent {
     }
   }
 
+
   async showSearchResults(inputCharacter: string) {
     this.cardInfos = []; // Clear the previous data before fetching new cards
     console.log('Search Button Clicked');
@@ -99,85 +108,205 @@ export class CardsComponent {
     this.cardInfos = []; // Clear the previous data before fetching new cards
     
     // Apply checkbox states before fetching cards
-    if (this.paldeanFatesChecked) {
-      // var otherCheckboxesClicked = false;
-      // for (const checkbox of this.checkboxArray) {
-      //   console.log(checkbox);
-      // }
-
+    // Paldean Fates
+    if (this.checkBoxValues[5].checkedOrNot) {
       this.totalCards = this.cards_in_sets['sv4pt5'];
       for (let i = 1; i <= this.totalCards; i++) {
-        
+        // Check the cancellation flag.
+        if(this.isCancelled) {
+          console.log('Operation cancelled. Stopping further card fetching.');
+          this.isCancelled = false;
+          break;
+        }
         const cardId = 'sv4pt5-' + i;
         try {
+          // Check the cancellatin flag again before making the API call.
+          if(this.isCancelled) {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
           const data = await this.pokemonService.showTestCard(cardId).toPromise();
-          this.cardInfos.push(data); // Push the fetched card data into the array
-          console.log('Fetched card:', cardId);
+          // Check the cancellation flag before updating the cardInfos array.
+          if(!this.isCancelled) {
+            this.cardInfos.push(data); // Push the fetched card data into the array
+            console.log('Fetched card:', cardId);
+          }
+          else {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
         } catch (error) {
           console.error('Error fetching card:', cardId, error);
         }
       }
     } 
-    else if (this.swordShieldChecked) {
+    // Sword and Shield
+    else if (this.checkBoxValues[0].checkedOrNot) {
       this.totalCards = this.cards_in_sets['swsh-1'];
       for (let i = 1; i <= this.totalCards; i++) {
+        // Check the cancellation flag.
+        if(this.isCancelled) {
+          console.log('Operation cancelled. Stopping further card fetching.');
+          this.isCancelled = false;
+          break;
+        }        
         const cardId = 'swsh1-' + i;
         try {
+          // Check the cancellatin flag again before making the API call.
+          if(this.isCancelled) {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
           const data = await this.pokemonService.showTestCard(cardId).toPromise();
-          this.cardInfos.push(data); // Push the fetched card data into the array
-          console.log('Fetched card:', cardId);
+          // Check the cancellation flag before updating the cardInfos array.
+          if(!this.isCancelled) {
+            this.cardInfos.push(data); // Push the fetched card data into the array
+            console.log('Fetched card:', cardId);
+          }
+          else {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
         } catch (error) {
           console.error('Error fetching card:', cardId, error);
         }
       }
     } 
-    else if (this.rebelClashChecked){
+    // Rebel Clash
+    else if (this.checkBoxValues[1].checkedOrNot){
       this.totalCards = this.cards_in_sets['swsh-2'];
       for (let i = 1; i <= this.totalCards; i++) {
+        // Check the cancellation flag.
+        if(this.isCancelled) {
+          console.log('Operation cancelled. Stopping further card fetching.');
+          this.isCancelled = false;
+          break;
+        }        
         const cardId = 'swsh2-' + i;
         try {
+          // Check the cancellatin flag again before making the API call.
+          if(this.isCancelled) {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
           const data = await this.pokemonService.showTestCard(cardId).toPromise();
-          this.cardInfos.push(data); // Push the fetched card data into the array
-          console.log('Fetched card:', cardId);
+          // Check the cancellation flag before updating the cardInfos array.
+          if(!this.isCancelled) {
+            this.cardInfos.push(data); // Push the fetched card data into the array
+            console.log('Fetched card:', cardId);
+          }
+          else {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
         } catch (error) {
           console.error('Error fetching card:', cardId, error);
         }
       }
     }
-    else if(this.darknessAblazeChecked){
+    // Darkness Ablaze
+    else if(this.checkBoxValues[2].checkedOrNot){
       this.totalCards = this.cards_in_sets['swsh-3'];
       for (let i = 1; i <= this.totalCards; i++) {
+        // Check the cancellation flag.
+        if(this.isCancelled) {
+          console.log('Operation cancelled. Stopping further card fetching.');
+          this.isCancelled = false;
+          break;
+        }   
         const cardId = 'swsh3-' + i;
         try {
+          // Check the cancellatin flag again before making the API call.
+          if(this.isCancelled) {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
           const data = await this.pokemonService.showTestCard(cardId).toPromise();
-          this.cardInfos.push(data); // Push the fetched card data into the array
-          console.log('Fetched card:', cardId);
+          // Check the cancellation flag before updating the cardInfos array.
+          if(!this.isCancelled) {
+            this.cardInfos.push(data); // Push the fetched card data into the array
+            console.log('Fetched card:', cardId);
+          }
+          else {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
         } catch (error) {
           console.error('Error fetching card:', cardId, error);
         }
       }
     }
-    else if(this.championsPathChecked){
+    // Champions Path
+    else if(this.checkBoxValues[3].checkedOrNot){
       this.totalCards = this.cards_in_sets['swsh-35'];
       for (let i = 1; i <= this.totalCards; i++) {
+        // Check the cancellation flag.
+        if(this.isCancelled) {
+          console.log('Operation cancelled. Stopping further card fetching.');
+          this.isCancelled = false;
+          break;
+        }         
         const cardId = 'swsh35-' + i;
         try {
+          // Check the cancellatin flag again before making the API call.
+          if(this.isCancelled) {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
           const data = await this.pokemonService.showTestCard(cardId).toPromise();
-          this.cardInfos.push(data); // Push the fetched card data into the array
-          console.log('Fetched card:', cardId);
+          // Check the cancellation flag before updating the cardInfos array.
+          if(!this.isCancelled) {
+            this.cardInfos.push(data); // Push the fetched card data into the array
+            console.log('Fetched card:', cardId);
+          }
+          else {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
         } catch (error) {
           console.error('Error fetching card:', cardId, error);
         }
       }
     }
-    else if(this.obsidianFlamesChecked){
+    // Obsidian Flames
+    else if(this.checkBoxValues[4].checkedOrNot){
       this.totalCards = this.cards_in_sets['sv-3'];
       for (let i = 1; i <= this.totalCards; i++) {
+        // Check the cancellation flag.
+        if(this.isCancelled) {
+          console.log('Operation cancelled. Stopping further card fetching.');
+          this.isCancelled = false;
+          break;
+        }        
         const cardId = 'sv3-' + i;
         try {
+          // Check the cancellatin flag again before making the API call.
+          if(this.isCancelled) {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
           const data = await this.pokemonService.showTestCard(cardId).toPromise();
-          this.cardInfos.push(data); // Push the fetched card data into the array
-          console.log('Fetched card:', cardId);
+          // Check the cancellation flag before updating the cardInfos array.
+          if(!this.isCancelled) {
+            this.cardInfos.push(data); // Push the fetched card data into the array
+            console.log('Fetched card:', cardId);
+          }
+          else {
+            console.log('Operation cancelled. Stopping further card fetching.');
+            this.isCancelled = false;
+            break;
+          }
         } catch (error) {
           console.error('Error fetching card:', cardId, error);
         }
@@ -187,60 +316,130 @@ export class CardsComponent {
 
     }
     this.updateCardInfos(this.cardInfos);
-
   }
 
   onCheckboxChange(event: any, checkbox: string) {
+    // Darkness Ablaze
     if (checkbox === 'darknessAblaze') {
-      this.darknessAblazeChecked = event.target.checked;
-      if (this.darknessAblazeChecked) {
+      this.checkBoxValues[2].checkedOrNot = event.target.checked;
+      if (this.checkBoxValues[2].checkedOrNot) {
         this.totalCards = this.cards_in_sets['swsh-3']; // Set totalCards to 216 when Darkness Ablaze is checked
       } else {
         // Set totalCards to the default value or any other desired value when unchecked
-        this.totalCards = 11;
+        this.totalCards = 0;
+        this.cardInfos = [];
+        ///////////////////////////////////////////////
+        this.pokemonService.cardInfos = [];
+        this.pokemonService.clearCardInfos;
+        this.cancelOperations();
       }
-    } else if (checkbox === 'rebelClash') {
-      this.rebelClashChecked = event.target.checked;
-      if (this.rebelClashChecked) {
+    }
+    // Rebel Clash 
+    else if (checkbox === 'rebelClash') {
+      this.checkBoxValues[1].checkedOrNot = event.target.checked;
+      if (this.checkBoxValues[1].checkedOrNot) {
         this.totalCards = this.cards_in_sets['swsh-2']; // Set totalCards to 216 when Darkness Ablaze is checked
       } else {
         // Set totalCards to the default value or any other desired value when unchecked
-        this.totalCards = 11;
+        this.totalCards = 0;
+        this.cardInfos = [];
+        ///////////////////////////////////////////////
+        this.pokemonService.cardInfos = [];
+        this.pokemonService.clearCardInfos;
+        this.cancelOperations();
       }
-    } else if (checkbox === 'swordShield') {
-      this.swordShieldChecked = event.target.checked;
-      if (this.swordShieldChecked) {
+    } 
+    // Sword and Shielld
+    else if (checkbox === 'swordShield') {
+      this.checkBoxValues[0].checkedOrNot = event.target.checked;
+      if (this.checkBoxValues[0].checkedOrNot) {
         this.totalCards = this.cards_in_sets['swsh-1']; // Set totalCards to 216 when Darkness Ablaze is checked
       } else {
         // Set totalCards to the default value or any other desired value when unchecked
-        this.totalCards = 11;
+        this.totalCards = 0;
+        this.cardInfos = [];
+        ///////////////////////////////////////////////
+        this.pokemonService.cardInfos = [];
+        this.pokemonService.clearCardInfos;
+        this.cancelOperations();
       }
-    } else if (checkbox === 'championsPath') {
-      this.championsPathChecked = event.target.checked;
-      if (this.championsPathChecked) {
+    }
+    // Champions Path 
+    else if (checkbox === 'championsPath') {
+      this.checkBoxValues[3].checkedOrNot = event.target.checked;
+      if (this.checkBoxValues[3].checkedOrNot) {
         this.totalCards = this.cards_in_sets['swsh-4']; // Set totalCards to 216 when Darkness Ablaze is checked
       } else {
         // Set totalCards to the default value or any other desired value when unchecked
-        this.totalCards = 11;
+        this.totalCards = 0;
+        this.cardInfos = [];
+        ///////////////////////////////////////////////
+        this.pokemonService.cardInfos = [];
+        this.pokemonService.clearCardInfos;
+        this.cancelOperations();
       }
-    } else if (checkbox === 'obsidianFlames') {
-      this.obsidianFlamesChecked = event.target.checked;
-      if (this.obsidianFlamesChecked) {
+    } 
+    // Obsidian Flames
+    else if (checkbox === 'obsidianFlames') {
+      this.checkBoxValues[4].checkedOrNot = event.target.checked;
+      if (this.checkBoxValues[4].checkedOrNot) {
         this.totalCards = this.cards_in_sets['sv-3']; // Set totalCards to 216 when Darkness Ablaze is checked
       } else {
         // Set totalCards to the default value or any other desired value when unchecked
-        this.totalCards = 11;
+        this.totalCards = 0;
+        this.cardInfos = [];
+        ///////////////////////////////////////////////
+        this.pokemonService.cardInfos = [];
+        this.pokemonService.clearCardInfos;
+        this.cancelOperations();      
       }
-    } else if (checkbox === 'paldeanFates') {
-      this.paldeanFatesChecked = event.target.checked;
-      if (this.paldeanFatesChecked) {
+    } 
+    // Paldean Fates
+    else if (checkbox === 'paldeanFates') {
+      this.checkBoxValues[5].checkedOrNot = event.target.checked;
+      if (this.checkBoxValues[5].checkedOrNot) {
         this.totalCards = this.cards_in_sets['sv4pt5']; // Set totalCards to 216 when Darkness Ablaze is checked
       } else {
         // Set totalCards to the default value or any other desired value when unchecked
         this.totalCards = 0;
         this.cardInfos = [];
-
+        ///////////////////////////////////////////////
+        this.pokemonService.cardInfos = [];
+        this.pokemonService.clearCardInfos;
+        this.cancelOperations();
       }
     }
+
+
+
+    // // Uncheck all other checkboxes when a checkbox is checked
+    // this.checkBoxValues.forEach((box) => {
+    //   if (box.set !== checkbox) {
+    //     box.checkedOrNot = false;
+    //     (this as any)[`${box.set}Checked`] = false; // Uncheck the corresponding property
+    //   }
+    // });
+
+    // // Update the checked state of the current checkbox
+    // (this as any)[`${checkbox}Checked`] = event.target.checked;
+    // const selectedBox = this.checkBoxValues.find((box) => box.set === checkbox);
+    // if (selectedBox) {
+    //   selectedBox.checkedOrNot = (this as any)[`${checkbox}Checked`];
+    // }
+    // // Handle the logic for setting totalCards based on the selected checkbox
+    // if (event.target.checked) {
+    //   this.totalCards = this.cards_in_sets[checkbox];
+    // } else {
+    //   this.totalCards = 0;
+    //   this.cardInfos = [];
+    //   this.pokemonService.clearCardInfos();
+    //   this.cancelOperations();
+    // }
+  }
+
+  // Add a method to cancel ongoing operations
+  cancelOperations() {
+    // Set the cancellation flag to true
+    this.isCancelled = true;
   }
 }

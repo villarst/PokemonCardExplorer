@@ -7,11 +7,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class PokemonService {
   private apiKey = '15625e63-354d-4ce5-a221-a5c200ce57f4'; // Replace with your actual API key
   
-  
+  public isSelectedFirst: boolean = false;
+  public isSelectedSecond: boolean = false;
+
   public cardInfos: any[] = [];
+
+
   updateCardInfos(newCardInfos: any[]): void {
     this.cardInfos = newCardInfos;
     console.log('Update Called.');
+    console.log("Card Infos is: " + this.cardInfos)
   }
 
   clearCardInfos(): void {
